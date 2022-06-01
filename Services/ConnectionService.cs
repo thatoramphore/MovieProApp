@@ -9,6 +9,7 @@ namespace MovieProApp.Services
 {
     public class ConnectionService
     {
+        //toggle between local and remote DB
         public static string GetConnectionString(IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
@@ -19,7 +20,7 @@ namespace MovieProApp.Services
         private static string BuildConnectionString(string databaseUrl)
         {
             var databaseUri = new Uri(databaseUrl);
-            var userInfo = databaseUri.UserInfo.Split(':');
+            var userInfo = databaseUri.UserInfo.Split(':');     //store userInfo in array 
             var builder = new NpgsqlConnectionStringBuilder
             {
                 Host = databaseUri.Host,

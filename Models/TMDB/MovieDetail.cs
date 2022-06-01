@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace MovieProApp.Models.TMDB
 {
 
-    public class MovieDtail
+    public class MovieDetail
     {
         public bool adult { get; set; }
         public string backdrop_path { get; set; }

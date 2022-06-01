@@ -12,11 +12,11 @@ namespace MovieProApp.Models.Settings
         public string DefaultPosterSize { get; set; }
         public string DefaultYouTubeKey { get; set; }
         public string DefaultCastImage { get; set; }
-        public DefaultConnection DefaultConnection { get; set; }
+        public DefaultCollection DefaultCollection { get; set; }
         public DefaultCredentials DefaultCredentials { get; set; }
     }
 
-    public class DefaultConnection
+    public class DefaultCollection
     {
         public string Name { get; set; }
         public string Description { get; set; }
