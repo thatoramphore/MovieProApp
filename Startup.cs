@@ -30,13 +30,18 @@ namespace MovieProApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //var test = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
-                    ConnectionService.GetConnectionString(Configuration)));
+                    Configuration.GetConnectionString("DefaultConnection")));
+
+            /*services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(
+                    ConnectionService.GetConnectionString(Configuration)));*/
 
             services.AddDatabaseDeveloperPageExceptionFilter();
-            /*services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();*/
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
